@@ -4,7 +4,8 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_crashlytics_exp/homepage_screen.dart';
 import 'package:flutter/material.dart';
 
-Future<void> main() async {
+//If you want Crash Reports and Throw errors as well then use runZonedGuarded Function
+/*Future<void> main() async {
   runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
@@ -13,6 +14,13 @@ Future<void> main() async {
   }, (error, stackTrace) {
     FirebaseCrashlytics.instance.recordError(error, stackTrace);
   });
+}*/
+
+// If You want only Crash Reports then No need of runZonedGuarded Function
+  void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+    runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
